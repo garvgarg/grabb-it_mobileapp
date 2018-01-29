@@ -1,0 +1,26 @@
+<ion-view view-title=" {{coupon.business_name  || 'NA'}}" ng-init="onloadData()" cache-view="false">
+    <ion-nav-bar class="bar bar-header bar-stable">
+        <ion-nav-back-button class="button-icon button-clear">
+            <i class="ion-arrow-left-c" style="color:white;font-size: 24px;"></i>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content>
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <!--for showing the data-->
+        <div class="list card card-expand">
+
+            <div class="item item-image" style="height: 200px;">
+                <img ng-if="coupon.img_url != ''" ng-src="{{coupon.img_url}}" err-src="./img/grabbit-default.jpg">
+                <img ng-if="coupon.img_url == ''" ng-src="./img/grabbit-default.jpg">
+            </div>
+        </div>
+        <!--for showing the google map-->
+        <div class="row">
+            <div class="col">
+                <div id="scanMap" class="margin-top-prec"></div>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,60 @@
+<ion-view view-title="Tutotrial">
+  <ion-content class="padding-0 tutorial-background">
+    <ion-slide-box on-slide-changed="slideHasChanged($index)">
+      <!--first slide-->
+      <ion-slide>
+        <div class="logo">
+          <img src="./img/Slide0.png" width="80%" />
+        </div>
+        <div class="tutorial-bottom">
+          <div class="title">
+            GRAB COUPONS
+          </div>
+          <div class="description">
+            Click “Get Deals Now” button to Get Deals from Car.
+          </div>
+          <a class="button button-light" ng-click="next()"> NEXT</a>
+          <div ng-click="goSkip()" class="skip">
+            Skip
+          </div>
+        </div>
+      </ion-slide>
+      <!--first slide end-->
+      <ion-slide>
+        <div class="logo">
+          <img src="./img/Slide1.png" width="76%" />
+        </div>
+        <div class="tutorial-bottom">
+          <div class="title">
+            VIEW DEALS
+          </div>
+          <div class="description">
+           Download Deals and Check Current Deals.
+          </div>
+          <a class="button button-light" ng-click="next()">NEXT</a>
+          <div ng-click="goSkip()" class="skip">
+            Skip
+          </div>
+        </div>
+      </ion-slide>
+      <!--second slide end-->
+      <ion-slide>
+        <div class="logo">
+          <img src="./img/Slide2.png" width="76%" />
+        </div>
+        <div class="tutorial-bottom">
+          <div class="title">
+            REDEEM COUPON
+          </div>
+          <div class="description">
+            Get all the Details and Visit the Nearest Store
+          </div>
+          <button class="button button-light button-light-last" ng-click="goSkip()">
+              LET'S GRABB-IT
+            </button>
+        </div>
+      </ion-slide>
+      <!--third slide end-->
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,50 @@
+<ion-view view-title="Current Deals" ng-init="getDeals('default')" style="right: 0px">
+  <ion-nav-bar class="bar bar-header bar-stable">
+    <ion-nav-back-button class="button-icon button-clear">
+      <i class="ion-arrow-left-c" style="color:white;font-size: 24px;"></i>
+    </ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon ion-more color-topMenu" ng-click="showMenu($event)">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content>
+    <ion-refresher on-refresh="doRefresh()"></ion-refresher>    
+    <!--to  show the coupons data on the screen-->
+    <ion-list ng-show="isCoupons && loader && isCurrentCoupon" ng-repeat="currentCoupon in currentData">
+      <ion-item>
+        <div class="list card" ng-click="couponFun(currentCoupon, $index);">
+          <div class="item-avatar">
+            <img ng-if="currentCoupon.img_url != ''" ng-src="{{currentCoupon.img_url}}" err-src="./img/grabbit-default.jpg">
+            <img ng-if="currentCoupon.img_url == ''"  ng-src="./img/grabbit-default.jpg">
+            <h3>{{currentCoupon.business_name}}</h3>
+            <h4>{{currentCoupon.business_address}}</h4>
+            <h4>{{currentCoupon.zipcode}}</h4>
+          </div>
+        </div>
+        <ion-option-button class="class1" ng-click="removeCategory($index , currentCoupon);">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+    <!--after new deal if no data came-->
+  <div ng-if="!isCurrentCoupon && zeroResult && loader && isCoupons">
+      <h4 class="horizontal-center">Current Location Does'nt have DEALS</h4>
+    </div>
+  
+
+    <div ng-if="!isCoupons && loader">
+      <h3 class="horizontal-center vertical-center">Loading...</h3>
+    </div>
+    <!--if no deals is there-->
+    <div ng-if="!isCoupons && !loader && !isExistingCoupon">
+      <h3 class="horizontal-center vertical-center">NO DEALS FOUND</h3>
+    </div>
+  </ion-content>
+  <!--button for too get new deal-->
+  <div class="deal-button">
+    <button class="button button-float" ng-click="getDeals('current')">
+        <img src="./img/grabbit-deal.png" class="grabbit-deal-img"/>
+    </button>
+  </div>
+</ion-view>

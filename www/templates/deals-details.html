@@ -1,0 +1,53 @@
+<ion-view view-title=" {{coupon.business_name || 'NA'}}" cache-view="false">
+    <ion-nav-bar class="bar bar-header bar-stable">
+        <ion-nav-back-button class="button-icon button-clear">
+            <i class="ion-arrow-left-c" style="color:white;font-size: 24px;"></i>
+        </ion-nav-back-button>
+        <ion-nav-buttons side="right">
+            <button ng-show="showMapButton" class="button button-googlemap" ng-click="goGoogleMap()">
+                Go To Map
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <!-- <div class="list">
+            <div class="item item-body">
+                <img class="full-image" ng-src="{{coupon.img_url}}">
+            </div>
+        </div> -->
+        <!-- <div class="list card  card--expand">
+
+            <div class="item item-image" style="height: 200px;">
+                <img ng-src="{{coupon.img_url}}">
+            </div> -->
+
+        <!--<a class="item item-icon-left assertive" href="#">                  
+                    {{coupon.business_name}}
+                  </a>-->
+
+        <!-- </div> -->
+        <ion-list>
+            <ion-item>
+                <div class="item-image" style="height: 200px;">
+                    <img ng-if="coupon.img_url != ''" ng-src="{{coupon.img_url}}" err-src="./img/grabbit-default.jpg">
+                    <img ng-if="coupon.img_url == ''" ng-src="./img/grabbit-default.jpg">
+                </div>
+                <ion-option-button class="class1" ng-click="redeemedCategory();">
+                    Redeem
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+
+        <div class="row">
+            <div class="col">
+                <div id="map" class="margin-top-prec"></div>
+            </div>
+
+        </div>
+        <!--<button ng-click="goGoogleMap()">
+            Go Map
+        </button>-->
+
+    </ion-content>
+</ion-view>
